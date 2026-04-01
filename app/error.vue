@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   error: {
     statusCode: number
     message: string
@@ -12,9 +12,20 @@ function handleError() {
 </script>
 
 <template>
-  <main>
-    <h1>{{ error.statusCode }}</h1>
-    <p>{{ error.message }}</p>
-    <button @click="handleError">Voltar para a home</button>
-  </main>
+  <UApp>
+    <div class="flex flex-col items-center justify-center min-h-screen gap-4">
+      <p class="text-8xl font-bold text-primary">
+        {{ error.statusCode }}
+      </p>
+      <p class="text-xl text-muted">
+        {{ error.message }}
+      </p>
+      <UButton
+        label="Voltar para a home"
+        icon="i-lucide-home"
+        @click="handleError"
+        class="mt-4"
+      />
+    </div>
+  </UApp>
 </template>
