@@ -1,8 +1,8 @@
 <template>
   <UApp>
-    <header class="border-b border-gray-800">
-      <UContainer class="flex items-center justify-between py-4">
-        <NuxtLink to="/" class="text-xl font-bold text-white">
+    <header class="border-b border-default">
+      <UContainer class="flex items-center py-4">
+        <NuxtLink to="/" class="text-xl font-bold text-highlighted">
           Hit Digital
         </NuxtLink>
       </UContainer>

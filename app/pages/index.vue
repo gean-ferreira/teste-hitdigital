@@ -4,7 +4,7 @@ const { data: posts, status, error } = usePosts().list()
 
 <template>
   <div>
-    <h1 class="text-2xl font-bold text-white mb-8">Posts</h1>
+    <h1 class="text-2xl font-bold text-highlighted mb-8">Posts</h1>
 
     <div v-if="status === 'pending'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <USkeleton v-for="i in 6" :key="i" class="h-40 rounded-lg" />
@@ -26,17 +26,17 @@ const { data: posts, status, error } = usePosts().list()
         class="block"
       >
         <UCard class="h-full hover:ring-2 hover:ring-primary">
-          <h2 class="font-semibold text-white mb-2 line-clamp-2 capitalize">
+          <h2 class="font-semibold text-highlighted mb-2 line-clamp-2 capitalize">
             {{ post.title }}
           </h2>
-          <p class="text-sm text-gray-400 line-clamp-3">
+          <p class="text-sm text-muted line-clamp-3">
             {{ post.body }}
           </p>
         </UCard>
       </NuxtLink>
     </div>
 
-    <p v-else class="text-gray-400 text-center py-8">
+    <p v-else class="text-muted text-center py-8">
       Nenhum post encontrado.
     </p>
   </div>
