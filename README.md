@@ -1,75 +1,43 @@
-# Nuxt Minimal Starter
+# Hit Digital - Teste Frontend
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Aplicação Nuxt 4 que consome a API pública [JSONPlaceholder](https://jsonplaceholder.typicode.com) para listagem e detalhamento de posts.
 
-## Setup
+## Decisoes tecnicas
 
-Make sure to install dependencies:
+- **SSR nativo** — `useFetch` roda no servidor, entregando HTML pronto ao browser
+- **Cache SWR** — `getCachedData` no composable base evita refetch ao revisitar páginas
+- **Composables** — `useApi` (generico) e `usePosts` (dominio) separando responsabilidades
+- **Nuxt UI** — componentes prontos com dark mode e tokens de tema
+- **TypeScript** — tipagem em todas as camadas
 
-```bash
-# npm
-npm install
+## Estrutura
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```
+app/
+  composables/
+    useApi.ts         # fetch generico com cache SWR
+    usePosts.ts       # operacoes de posts (list, getById)
+  pages/
+    index.vue         # listagem de posts
+    posts/[id].vue    # detalhe do post
+  types/
+    post.ts           # interface Post
+  app.vue             # layout global com header
+  error.vue           # pagina de erro (404/500)
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Rodando o projeto
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
+bun install
 bun run dev
 ```
 
-## Production
+Acesse `http://localhost:3000`.
 
-Build the application for production:
+## Build de producao
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
 bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
 bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
